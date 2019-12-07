@@ -118,7 +118,7 @@
                                     <a href="editproduct.php?pid=<?php echo $prd->id ?>" class="btn btn-waring">
                                         <i class="glyphicon glyphicon-pencil"></i> 
                                     </a>
-                                    <a href="editproduct.php?pid=<?php echo $prd->id ?>" class="btn btn-danger">
+                                    <a href="deleteproduct.php?pid=<?php echo $prd->id ?>" class="btn btn-danger">
                                         <i class="glyphicon glyphicon-trash"></i> 
                                     </a>
                                 </p>
