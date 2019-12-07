@@ -92,9 +92,16 @@
             </div>
         </div>
     </nav>
-
+    
     <div class="container">
-        <div class="row">
+    <h2>Edit Product</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="thumbnail">
+                <img src="img/product/<?php echo $prd->picture; ?>" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
             <form action="saveproduct.php" class="form-horizontal" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name" class="control-label col-md-3">Name:</label>
@@ -129,7 +136,7 @@
                     <div class="col-md-9">
                         <input type="file" name="filepic" class="form-control-file" accept="image/*">  
                     </div>
-                        <img src="img/product/<?php echo $prd->picture; ?>" alt="">
+                        
                 </div>
 
                 <div class="form-group">
@@ -141,6 +148,7 @@
                 </div>
 
             </form>
+            </div>
         </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
