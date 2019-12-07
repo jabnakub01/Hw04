@@ -118,8 +118,8 @@
                                     <a href="editproduct.php?pid=<?php echo $prd->id ?>" class="btn btn-waring">
                                         <i class="glyphicon glyphicon-pencil"></i> 
                                     </a>
-                                    <a href="deleteproduct.php?pid=<?php echo $prd->id ?>" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i> 
+                                    <a href="deleteproduct.php?pid=<?php echo $prd->id ?>" class="btn btn-danger lnkDelete">
+                                        <i class="glyphicon glyphicon-trash" id="lnkDelete"></i> 
                                     </a>
                                 </p>
                         </div>
@@ -134,5 +134,18 @@
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $(".lnkDelete").click(function(){
+            if(confirm("Confirm delete?")){
+                return true;
+            }else{
+                return false;
+            }
+            //return confirm("Confirm Delete");
+            });
+        });
+
+    </script>
 </body>
 </html>
