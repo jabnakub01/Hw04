@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form action="saveproduct.php" class="form-horizontal" method="post" enctype="multipart/form-data">
+            <form action="updateproduct.php" class="form-horizontal" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name" class="control-label col-md-3">Name:</label>
                     <div class="col-md-9">
