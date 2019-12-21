@@ -86,9 +86,14 @@
 
     <form action="" method="post">
         <div class="form-group">
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="txtSearch" placeholder="กรอกข้อมูล">
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="txtSearch" placeholder="ต่ำสุด">
             </div>
+
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="txtSearch2" placeholder="สูงสุด">
+            </div>
+
             <div class="col-md-2">
                 <button name="submit" class="btn btn-block btn-success">
                     <i class="glyphicon glyphicon-search"></i> Go!
@@ -100,7 +105,8 @@
     <?php
         if(isset($_POST['submit'])){
             $search = $_POST['txtSearch'];
-            $sql = "SELECT * FROM product WHERE name LIKE '%$search%'";
+            $search2 = $_POST['txtSearch2'];
+            $sql = "SELECT * FROM product WHERE price BETWEEN '$search' AND '$search2'";
     ?>
         <div class="row">
             <div class="col-md-12">
