@@ -83,16 +83,28 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Jaidee Shop5555</h1>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id animi maxime beatae iusto deleniti corrupti ducimus temporibus dicta quibusdam quidem! Dolores accusamus doloremque perspiciatis corrupti aperiam ipsum dignissimos eius adipisci?</p>
+
+    <form action="" method="post">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="txtSearch" placeholder="กรอกข้อมูล">
+            </div>
+            <div class="col-md-2">
+                <button name="submit" class="btn btn-block btn-success">
+                    <i class="glyphicon glyphicon-search"></i> Go!
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="container">
+    </form>
+
+    <?php
+        if(isset($_POST['submit'])){
+            $search = $_POST['txtSearch'];
+            $sql = "SELECT * FROM product WHERE name LIKE '%$search%'";
+    ?>
         <div class="row">
-        <?php
-            $sql = "SELECT * FROM product ORDER BY id";
+            <div class="col-md-12">
+            <?php
             $result = $con->query($sql);
                     if(!$result){
                         echo "ERROR ";
@@ -139,20 +151,15 @@
                 
         </div>
     </div>
+            </div>
+        </div>
+    <?php
+        }
+    ?>
+
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-        $(".lnkDelete").click(function(){
-            if(confirm("Confirm delete?")){
-                return true;
-            }else{
-                return false;
-            }
-            //return confirm("Confirm Delete");
-            });
-        });
 
-    </script>
 </body>
 </html>
