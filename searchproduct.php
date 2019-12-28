@@ -83,31 +83,31 @@
             </div>
         </div>
     </nav>
-
-
+    
+    <form action="" method="post">
     <div class="contarner">
-            <h2>Search Product</h2>
-            <div class="col-md-2">
-                <select name="searchCol" class="form-control">
-                    <option value="1">ชื่อสินค้า</option>
-                    <option value="2">รายละเอียด</option>
-                    <option value="3">max price</option>
-                </select> 
-            </div>
+    <div class="row" class="col-md-2"></div>
+    <h2>Search Product</h2>
+        <select name="searchCol" class="form-control">
+        <option value="1">ชื่อสินค้า</option>
+        <option value="2">รายละเอียด</option>
+        <option value="3">max price</option>
+        </select>
     </div>
-            <form action="" method="post">
-                <div class="form-group">
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" name="txtSearch" placeholder="Search">
-                    </div>
 
-                    <div  class="col-md-1">
-                        <button name="submit" class="btn btn-block btn-success">
-                            <i class="glyphicon glyphicon-search"></i> Go!
-                        </button>
-                    </div>
-                </div>
-            </form>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                <input type="text" class="form-control" name="txtSearch" placeholder="Search">
+            </div>
+
+            <div class="col-md-2">
+                <button name="submit" class="btn btn-block btn-success">
+                    <i class="glyphicon glyphicon-search"></i> Go!
+                </button>
+            </div>
+        </div>
+    </form>
 
 
 
@@ -134,7 +134,7 @@
             //Information Retrieval ==> กาาค้นหาสารสนเทศ
             //NLP: Natural Langueage Processing
     ?>
-        <div class="row" style="margin-top:100px">
+        <div class="row">
             <div class="col-md-12">
             <?php
             $result = $con->query($sql);
