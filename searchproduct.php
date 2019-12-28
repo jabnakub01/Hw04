@@ -84,31 +84,57 @@
         </div>
     </nav>
 
-    <form action="" method="post">
-        <div class="form-group">
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="txtSearch" placeholder="ต่ำสุด">
-            </div>
 
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="txtSearch2" placeholder="สูงสุด">
-            </div>
-
+    <div class="contarner">
+            <h2>Search Product</h2>
             <div class="col-md-2">
-                <button name="submit" class="btn btn-block btn-success">
-                    <i class="glyphicon glyphicon-search"></i> Go!
-                </button>
+                <select name="searchCol" class="form-control">
+                    <option value="1">ชื่อสินค้า</option>
+                    <option value="2">รายละเอียด</option>
+                    <option value="3">max price</option>
+                </select> 
             </div>
-        </div>
-    </form>
+    </div>
+            <form action="" method="post">
+                <div class="form-group">
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="txtSearch" placeholder="Search">
+                    </div>
+
+                    <div  class="col-md-1">
+                        <button name="submit" class="btn btn-block btn-success">
+                            <i class="glyphicon glyphicon-search"></i> Go!
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
 
     <?php
         if(isset($_POST['submit'])){
+            $searchCol = $_POST['searchCol'];
             $search = $_POST['txtSearch'];
-            $search2 = $_POST['txtSearch2'];
-            $sql = "SELECT * FROM product WHERE price BETWEEN '$search' AND '$search2'";
+
+            $sql="SELECT * FROM product ";
+            switch($searchCol){
+                case 1:$sql .="WHERE name LIKE '%$search%'"; 
+                    break;
+                case 2:$sql .="WHERE description LIKE '%$search%'";
+                    break;
+                case 1:$sql .="WHERE price <=$search";
+                    break;  
+            }
+
+            //wildcard % _
+            // %cat %at% ==> cats cat that scratch  
+
+            //Rangular Expression RegEx
+            
+            //Information Retrieval ==> กาาค้นหาสารสนเทศ
+            //NLP: Natural Langueage Processing
     ?>
-        <div class="row">
+        <div class="row" style="margin-top:100px">
             <div class="col-md-12">
             <?php
             $result = $con->query($sql);
