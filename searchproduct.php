@@ -122,7 +122,7 @@
                     break;
                 case 2:$sql .="WHERE description LIKE '%$search%'";
                     break;
-                case 1:$sql .="WHERE price <=$search";
+                case 3:$sql .="WHERE price <=$search";
                     break;  
             }
 
