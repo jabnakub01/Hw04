@@ -6,30 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>คิดราคาสินค้า</title>
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/loadingoverlay.min"></script>
+    <script src="js/loadingoverlay.min.js"></script>
 </head>
 <body>
     <h1>คิดราคาสินค้า</h1>
     <form action="" method="post" id="frmproduct">
 
         <p>
-            รหัสสินค้า : <input type="textt" name="pid" id="pid">
+            รหัสสินค้า : <input type="text" name="pid" id="pid">
         </p>
 
         <p>
-            จำนวน : <input type="textt" name="qty" id="qty">
+            จำนวน : <input type="text" name="qty" id="qty">
         </p>
 
         <p>
-            ชื่อสินค้า : <input type="textt" name="pname" id="pname">
+            ชื่อสินค้า : <input type="text" name="pname" id="pname">
         </p>
         
         <p>
-            ราคาสินค้า : <input type="textt" name="pprice" id="pprice">
+            ราคาสินค้า : <input type="text" name="pprice" id="pprice">
         </p>
 
         <p>
-            ราคารวม : <input type="textt" name="total" id="total">
+            ราคารวม : <input type="text" name="total" id="total">
         </p>
 
         <p>
@@ -48,6 +48,15 @@
                     },
                     dataType:"json",
                     timeout:5000,
+                    beforeSend:function(){
+                        $.LoadingOverlay('show',{
+                            image:'img/product/clock-loading.gif',
+                            background:'rgba(200,b200,b200,b0.6)',
+                            text:'Searching...',
+                            testResizeFactor:0.15
+                        });
+                    },
+
                     success:(result)=>{
                         $("#pname").val(result.name);
                         $("#pprice").val(result.price);
@@ -57,7 +66,9 @@
                         $("#total").val(total);
 
                         //console.log(result);
-                    }
+                    },
+
+                    complete:()=>$.LoadingOverlay('hide')
                 });
                 return false;
             });
